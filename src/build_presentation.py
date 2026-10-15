@@ -5,9 +5,11 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from reportlab.lib import colors
+from reportlab import rl_config
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle, PageBreak, Preformatted
+rl_config.useA85 = False
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'deliverables'; OUT.mkdir(exist_ok=True)
