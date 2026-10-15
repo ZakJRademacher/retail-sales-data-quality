@@ -1,0 +1,4 @@
+﻿flag,rows
+"missing customer ID, retained when otherwise valid",135080
+"missing description, retained when otherwise valid",1454
+"exact repeated source row, retained",5268
