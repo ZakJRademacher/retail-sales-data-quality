@@ -18,15 +18,16 @@ A portfolio case study using **541,909 actual transaction lines** from Kaggle's 
 
 ## Start here
 
-- `deliverables/case-study.pdf`: concise visual explanation for a prospective client.
-- `deliverables/retail-sales-review.xlsx`: editable Excel report with formulas and a native chart.
-- `deliverables/report.html`: standalone report, open locally in a browser.
-- `docs/METHOD.md`: cleaning decisions, measurement definitions and limitations.
-- `docs/DATA_DICTIONARY.md`: source and output schemas.
-- `docs/QA_REPORT.md`: executed checks and independent validation.
-- `docs/EXCEL_GUIDE.md`: workbook formulas and refresh instructions.
-- `docs/PROJECT_WALKTHROUGH.md`: explanation of the code and SQL for reviewing the project.
-- `docs/SOURCES.md`: source links, citation, license and input fingerprint.
+- [Download the complete portfolio bundle](https://github.com/ZakJRademacher/retail-sales-data-quality/raw/main/retail-data-portfolio.zip).
+- [PDF case study](deliverables/case-study.pdf): concise visual explanation for a prospective client.
+- [Excel review](deliverables/retail-sales-review.xlsx): editable report with formulas and a native chart.
+- [Offline browser report](deliverables/report.html): download and open locally.
+- [Method](docs/METHOD.md): cleaning decisions, measurement definitions and limitations.
+- [Data dictionary](docs/DATA_DICTIONARY.md): source and output schemas.
+- [QA report](docs/QA_REPORT.md): executed checks and independent validation.
+- [Excel guide](docs/EXCEL_GUIDE.md): formulas and refresh instructions.
+- [Project walkthrough](docs/PROJECT_WALKTHROUGH.md): explanation of the code and SQL.
+- [Sources](docs/SOURCES.md): citation, license and input fingerprint.
 
 ## Reproduce the analysis
 
