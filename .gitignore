@@ -1,0 +1,7 @@
+__pycache__/
+node_modules/
+data/raw/*
+results/retail.sqlite
+results/cleaned_lines.csv
+tmp/
+*.inspect.ndjson

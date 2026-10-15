@@ -1,0 +1,3 @@
+# Optional independent verification, not needed for the core pipeline.
+pandas>=2.2,<3
+openpyxl>=3.1,<4
