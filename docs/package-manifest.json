@@ -2,8 +2,8 @@
   "files": [
     {
       "path": "src/build_presentation.py",
-      "bytes": 17568,
-      "sha256": "9132e5e78ab14a7a650e6c7c7e5a2a02d00ec2562836bb5e3b03461bd74606ff"
+      "bytes": 17627,
+      "sha256": "a2926a2a37c344f08b9aa82846085d28576fad6f99e3b49dd962947c25b518d9"
     },
     {
       "path": "src/download_data.py",
@@ -97,8 +97,8 @@
     },
     {
       "path": "docs/QA_REPORT.md",
-      "bytes": 1561,
-      "sha256": "fcdd43408068ab03df78dbb56a8318d05479ee7037534bbcc5582b1a5856f672"
+      "bytes": 1351,
+      "sha256": "f3115130f1d422e3a6ab90294783a151954725222cf47c3eb999e4a110b30c74"
     },
     {
       "path": "docs/SOURCES.md",
@@ -117,8 +117,8 @@
     },
     {
       "path": "deliverables/case-study.pdf",
-      "bytes": 57990,
-      "sha256": "18612035ecd91212c3943d4934c73aa19dbc97a1220859def73cfe5b7f1e308a"
+      "bytes": 48071,
+      "sha256": "1baf78e8b86d016ddd6573118155b45bc2faf6f98ecfeb4d3320031b527155d5"
     },
     {
       "path": "deliverables/excel-country-preview.png",
@@ -171,6 +171,11 @@
       "sha256": "1fce60115b0b05c4963c34e123f4bb3bf02f54725805688825f9e13ed4d73868"
     },
     {
+      "path": ".gitattributes",
+      "bytes": 72,
+      "sha256": "b142477a66b0bd5249d7b960ea6ec6e095cf45a3b768386317a91206c88ec853"
+    },
+    {
       "path": ".gitignore",
       "bytes": 108,
       "sha256": "aba8644cbe5295991f51169f3c573abc3705812869505c0926289113dc3bb673"
@@ -182,8 +187,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5678,
-      "sha256": "ae5010d0cf1e09ea40e653bf589f682beba6eaeffc5b2963e8df9d749d59286f"
+      "bytes": 5819,
+      "sha256": "b71db24f959a481ead192707910492f57a956934bc627c1eabfc8236d9228f43"
     },
     {
       "path": "requirements-qa.txt",

@@ -23,4 +23,4 @@ Executed against the downloaded Kaggle CSV on October 15, 2026.
 - Exact repeated source occurrences: 5,268.
 - Exact-repeat sensitivity net: £9,748,131.07.
 
-The controls compare integer pence, not floating-point approximations. The excluded signed value can be negative and is not an estimate of lost revenue. Independent pandas recomputation, SQLite integrity, Excel cached values, formula presence, country shares, chart bindings and exported line color all passed. Both workbook views and both PDF pages were visually reviewed. See `workbook-verification.json` and `independent-verification.json` for execution evidence. Native desktop Excel recalculation was not tested; workbook formulas were tested in the artifact-tool calculation engine and exported for Excel.
+The controls compare integer pence, not floating-point approximations. The excluded signed value can be negative and is not an estimate of lost revenue. See `workbook-verification.json` and `independent-verification.json` for additional execution evidence. Native desktop Excel recalculation was not tested; workbook formulas were tested in the artifact-tool calculation engine and exported for Excel.
