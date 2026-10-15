@@ -1,0 +1,245 @@
+{
+  "files": [
+    {
+      "path": "src/build_presentation.py",
+      "bytes": 17568,
+      "sha256": "9132e5e78ab14a7a650e6c7c7e5a2a02d00ec2562836bb5e3b03461bd74606ff"
+    },
+    {
+      "path": "src/download_data.py",
+      "bytes": 988,
+      "sha256": "38ebe3ac20457ab6b4f897ff36d7e9d45cd5b4b915edf6831dd69819dfa3a6e1"
+    },
+    {
+      "path": "src/pipeline.py",
+      "bytes": 9121,
+      "sha256": "4db66f89fd149566cdd1b0bcd17a132addc62427a0ab458fef9b696be61f34d5"
+    },
+    {
+      "path": "sql/countries.sql",
+      "bytes": 431,
+      "sha256": "7dc91a155b851e88348e49f1bbf65412ac6edf05fc034c31dde01b323f3a4e48"
+    },
+    {
+      "path": "sql/customer_repeat.sql",
+      "bytes": 548,
+      "sha256": "a091673252547e229c697cc7a0d944a1b345e4c6b5fb86fc41be830dd46b8dc9"
+    },
+    {
+      "path": "sql/exclusion_summary.sql",
+      "bytes": 238,
+      "sha256": "7e64e135691c080428fe79df1c8b22ecd92db54a832ee7b7474f082f94c2c3c1"
+    },
+    {
+      "path": "sql/monthly.sql",
+      "bytes": 510,
+      "sha256": "da1d9d9a4de5a50c14a042e2ae980f5bace49976d8cf3fbf473656c5c01d4a69"
+    },
+    {
+      "path": "sql/products.sql",
+      "bytes": 549,
+      "sha256": "e6da624527653c5be0b49e4fc3e375903003a7e980bdf5a869e4f2fb200d0766"
+    },
+    {
+      "path": "sql/quality_flags.sql",
+      "bytes": 327,
+      "sha256": "dfe51e35f22142b928c095ceab5096d9c23b0ead482216561cbfc5ec811aafa0"
+    },
+    {
+      "path": "tests/test_pipeline.py",
+      "bytes": 3122,
+      "sha256": "e9849f05c6f1982ad24a79f2432beef7f85a2eed8a8c419a3772f5d1f4a8fc90"
+    },
+    {
+      "path": "tools/build_workbook.mjs",
+      "bytes": 8079,
+      "sha256": "725b235be9d72c8c829792143c89713988116c8ca5fb969d28ffd91d145d0b66"
+    },
+    {
+      "path": "tools/package_project.py",
+      "bytes": 2133,
+      "sha256": "5c3be4b7cce74f42f58fd0bf35b0adfa7a88ad5baac0087d22f2c0ef15a16bdb"
+    },
+    {
+      "path": "tools/verify_outputs.py",
+      "bytes": 3255,
+      "sha256": "166fd67b05ac1e2215bd191566565438d126c03e31a968799fbacb765f43d615"
+    },
+    {
+      "path": "docs/CASE_STUDY.md",
+      "bytes": 1818,
+      "sha256": "40a2b2d921b13ce89615fcaf6a93baa9c6325ae766288206c236e6cefb3a4ca9"
+    },
+    {
+      "path": "docs/DATA_DICTIONARY.md",
+      "bytes": 2803,
+      "sha256": "cf579c17fdbe4718ae2510b793df608e2767da673ee6d917e5208f8455df5816"
+    },
+    {
+      "path": "docs/EXCEL_GUIDE.md",
+      "bytes": 2107,
+      "sha256": "9f8d7f06612f919cdc3787726e7bc17c51cabced1b5f6dd917dd025d6cb12243"
+    },
+    {
+      "path": "docs/independent-verification.json",
+      "bytes": 767,
+      "sha256": "889f276156a09e7960c2e35e7ce78c6cff3ed0c6cba814e70f1992e7e6256cff"
+    },
+    {
+      "path": "docs/METHOD.md",
+      "bytes": 5072,
+      "sha256": "2164a5bc425e52674fcb8598520eeeb9f372517ff2c3519626d1f78f33404da1"
+    },
+    {
+      "path": "docs/PROJECT_WALKTHROUGH.md",
+      "bytes": 2805,
+      "sha256": "19e337d36c8811e0b8839331d77f0ec36c51f15bcb26e8e78160fa4e0196fe51"
+    },
+    {
+      "path": "docs/QA_REPORT.md",
+      "bytes": 1561,
+      "sha256": "fcdd43408068ab03df78dbb56a8318d05479ee7037534bbcc5582b1a5856f672"
+    },
+    {
+      "path": "docs/SOURCES.md",
+      "bytes": 1959,
+      "sha256": "a2c89360d3dd2558743fd29fdd66bccb2e3027fd86922982272563cae3d78cc2"
+    },
+    {
+      "path": "docs/UPWORK_LISTING.md",
+      "bytes": 1137,
+      "sha256": "00d15f069b319ac90001be70684164a6a2faf2fb5eb758ebd6ef829a2e6a2b9d"
+    },
+    {
+      "path": "docs/workbook-verification.json",
+      "bytes": 381,
+      "sha256": "fbcb45664aa4e8e91c9963f2c009a9c20bd0127564e4f3ddb5e9a67b1880590a"
+    },
+    {
+      "path": "deliverables/case-study.pdf",
+      "bytes": 57990,
+      "sha256": "18612035ecd91212c3943d4934c73aa19dbc97a1220859def73cfe5b7f1e308a"
+    },
+    {
+      "path": "deliverables/excel-country-preview.png",
+      "bytes": 129583,
+      "sha256": "f41659e5fc1000a88eba9bd0747aaa87970abf791df5a1cff811c4daed6fad36"
+    },
+    {
+      "path": "deliverables/excel-sales-preview.png",
+      "bytes": 320993,
+      "sha256": "62433b0a13f0b6f9fa488399beb17e06a23840c69fb01c7b78dfdce5fda0409c"
+    },
+    {
+      "path": "deliverables/monthly-sales.png",
+      "bytes": 43102,
+      "sha256": "7f2313970b89fe70bc81dfa759a3c65d2977268d7c795957ce58925beb826f5b"
+    },
+    {
+      "path": "deliverables/portfolio-cover.png",
+      "bytes": 107765,
+      "sha256": "0eb1e0882668f1c6deb38b6e8e0815b1365ad15d18e3ce40364a95e13e3286cc"
+    },
+    {
+      "path": "deliverables/README.md",
+      "bytes": 524,
+      "sha256": "8d3cbaa054319a27f323896f74b43ad8d2acf159dd84d64bc77a9d7afa6b27c8"
+    },
+    {
+      "path": "deliverables/report.html",
+      "bytes": 62523,
+      "sha256": "1d8333202234a3b955bb6789c9702c328ad145effccb023eb8e6fd794c905018"
+    },
+    {
+      "path": "deliverables/retail-sales-review.xlsx",
+      "bytes": 16420,
+      "sha256": "96232c98caee820a8b839eb1281a4dc80e6af47ecc9d36f4e205e37a2e2393ed"
+    },
+    {
+      "path": "data/sample/cleaned_example_1000.csv",
+      "bytes": 106660,
+      "sha256": "b617054e9f36cd1d9d3f27b09a7ff1cf057a37e179af022102014f9d25b14aa1"
+    },
+    {
+      "path": "data/sample/README.md",
+      "bytes": 531,
+      "sha256": "b86a8eafd5d5df57ac9d55956fc03c84a7e00bb4812500d6c647782b89f47200"
+    },
+    {
+      "path": ".github/workflows/tests.yml",
+      "bytes": 481,
+      "sha256": "1fce60115b0b05c4963c34e123f4bb3bf02f54725805688825f9e13ed4d73868"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 108,
+      "sha256": "aba8644cbe5295991f51169f3c573abc3705812869505c0926289113dc3bb673"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1250,
+      "sha256": "6d4352bc0419c013021133ba28ad6f8ea3585d4245daffd0d5ba577481dd5576"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5678,
+      "sha256": "ae5010d0cf1e09ea40e653bf589f682beba6eaeffc5b2963e8df9d749d59286f"
+    },
+    {
+      "path": "requirements-qa.txt",
+      "bytes": 103,
+      "sha256": "d371985b1351842a3993ab8d897a65040082b1ced097936f60dd03f2e00da9c9"
+    },
+    {
+      "path": "requirements-visuals.txt",
+      "bytes": 35,
+      "sha256": "6cd65c04720252753a99a7a1100e1a6956005a049c45583dc53d27649dad1e5a"
+    },
+    {
+      "path": "results/analysis.json",
+      "bytes": 994649,
+      "sha256": "f5aaabbe228ad6e39d65a444480fc1d25016314ad04bcaa858e7b2277ed3030b"
+    },
+    {
+      "path": "results/countries.csv",
+      "bytes": 1347,
+      "sha256": "f3ea90361e20bdb1e7f4cc549a401ee31584fc88bbe3ef2cdae2e0534a4b0a47"
+    },
+    {
+      "path": "results/customer_repeat.csv",
+      "bytes": 145,
+      "sha256": "7c1d10280de0dc19b05d019e509dfd29a12d285169bcb7e11fbba8fbc8a37e0e"
+    },
+    {
+      "path": "results/exceptions.csv",
+      "bytes": 166971,
+      "sha256": "1c8084178edb03580af87ca77a7613c17070748c8bc3f2d8da2a6019f2f2f6b3"
+    },
+    {
+      "path": "results/exclusion_summary.csv",
+      "bytes": 62,
+      "sha256": "c154093196cebe3e2c1f9d8accb089d204ce17080b7e5a1061376da667e0589a"
+    },
+    {
+      "path": "results/monthly.csv",
+      "bytes": 735,
+      "sha256": "11ae7ef624fec6708bdcd0810737019d84a75ea95892c1d7b41d95f1e2fc5323"
+    },
+    {
+      "path": "results/products.csv",
+      "bytes": 224943,
+      "sha256": "599e57f6d5af781076d2f36b88f4d8aaf602643a751cda2a858409a289767386"
+    },
+    {
+      "path": "results/quality_flags.csv",
+      "bytes": 178,
+      "sha256": "4096ee71a4353fb07c847363d149c2bde9e16acb413dfec44f643034e185a225"
+    }
+  ],
+  "large_files_omitted": [
+    "data/raw/*",
+    "results/retail.sqlite",
+    "results/cleaned_lines.csv"
+  ],
+  "rebuild": "See README.md"
+}

@@ -1,0 +1,26 @@
+{
+  "method": "Independent pandas source recomputation; read-only openpyxl/XML checks; SQLite integrity check",
+  "checks": {
+    "source_hash": true,
+    "rows": true,
+    "repeats": true,
+    "missing_customer": true,
+    "sale_rows": true,
+    "cancellation_rows": true,
+    "excluded_rows": true,
+    "net_pence": true,
+    "deduplicated_net_pence": true,
+    "gross_sales_pence": true,
+    "unidentified_gross": true,
+    "sqlite_integrity": true,
+    "no_orphan_lines": true,
+    "xlsx_cached_net": true,
+    "xlsx_net_formula": true,
+    "xlsx_chart": true,
+    "xlsx_country_shares": true,
+    "xlsx_chart_line_color": true,
+    "xlsx_chart_formula_binding": true
+  },
+  "all_passed": true,
+  "nativeExcelRecalculationTested": false
+}

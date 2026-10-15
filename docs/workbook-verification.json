@@ -1,0 +1,16 @@
+{
+  "engine": "Codex artifact-tool",
+  "netMatchesPython": true,
+  "invoiceCountMatchesPython": true,
+  "inputChangePropagates": true,
+  "restoredAfterTest": true,
+  "values": [
+    10666684.54,
+    896812.49,
+    9769872.05,
+    19960,
+    534.4030330661323
+  ],
+  "errorScan": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+  "nativeExcelTested": false
+}
