@@ -1,4 +1,5 @@
 {
+  "processed_at_utc": "2026-10-21T09:17:13.541373+00:00",
   "metrics": {
     "input_rows": 541909,
     "exact_repeat_rows": 5268,
@@ -34896,7 +34897,7 @@
   },
   "input_sha256": "d07aec9960083af2339975a3f9d3b26313b342dcd9f86cce0b919b1cde639a44",
   "source": "https://www.kaggle.com/datasets/carrie1/ecommerce-data",
-  "retrieved": "2026-10-15",
+  "reference_snapshot_retrieved": "2026-10-15",
   "currency": "GBP",
   "rounding": "per line, half up to pence"
 }

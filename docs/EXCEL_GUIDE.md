@@ -6,7 +6,7 @@ The workbook uses two sheets: **Sales review** for monthly inputs, formulas, hea
 
 The monthly table has Month, Gross GBP, Cancellations GBP, Net GBP, Sale invoices, Average invoice GBP, Net without repeats GBP, and Repeat impact GBP. Net is gross less cancellations; average invoice is gross divided by sale invoices; repeat impact is net less the deduplicated sensitivity. Top metrics link to this same table.
 
-After rerunning Python, replace the monthly imported columns with `results/monthly.csv`, converting pence to pounds once. Keep formula columns intact. The delivered template contains the 13 observed months; to add months, insert table rows, copy formulas, extend the chart and the bounded summary ranges. It does not automatically ingest arbitrary future periods.
+After rerunning Python, replace the monthly imported columns with `monthly.csv` from the directory printed by `python src/publication.py`, converting pence to pounds once. Keep formula columns intact. The delivered template contains the 13 observed months; to add months, insert table rows, copy formulas, extend the chart and the bounded summary ranges. It does not automatically ingest arbitrary future periods.
 
 December 2011 is visibly labeled partial. It is not comparable with a whole month. No forecast or target is implied.
 
@@ -25,3 +25,7 @@ node tools/build_workbook.mjs /absolute/path/to/project
 ```
 
 The Python pipeline and all SQL reports remain independent of this optional spreadsheet-authoring dependency.
+
+## Current published results
+
+Run `python src/publication.py` to locate the current snapshot before opening generated CSVs. The root-level result files are reference examples when a latest.json pointer exists. See [result versions](RESULT_VERSIONS.md).

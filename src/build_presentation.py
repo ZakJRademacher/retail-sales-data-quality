@@ -12,9 +12,13 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Tabl
 rl_config.useA85 = False
 
 ROOT=Path(__file__).resolve().parents[1]
+import sys
+sys.path.insert(0, str(ROOT/'src'))
+from publication import current_output
+RESULTS=current_output(ROOT/'results')
 OUT=ROOT/'deliverables'; OUT.mkdir(exist_ok=True)
 DOCS=ROOT/'docs'; DOCS.mkdir(exist_ok=True)
-S=json.loads((ROOT/'results/analysis.json').read_text(encoding='utf-8'))
+S=json.loads((RESULTS/'analysis.json').read_text(encoding='utf-8'))
 M=S['metrics']; R=S['reports']
 money=lambda p:f'£{p/100:,.2f}'
 pct=lambda n,d:f'{n/d:.1%}'

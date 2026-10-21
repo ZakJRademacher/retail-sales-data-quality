@@ -1,0 +1,6 @@
+{
+  "release": "2026-10-21-reliability-fixes",
+  "base_commit": "1bdf290b4e4138e0021d5a53f74f3505644dd859",
+  "publication": "GitHub portfolio release",
+  "scope": "Failure-safe refresh, annotation validation, export verification and packaging"
+}

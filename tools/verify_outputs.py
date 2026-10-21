@@ -5,8 +5,18 @@ from pathlib import Path
 import pandas as pd
 from openpyxl import load_workbook
 ROOT=Path(__file__).resolve().parents[1]
-s=json.loads((ROOT/'results/analysis.json').read_text(encoding='utf-8'))
-d=pd.read_csv(ROOT/'data/raw/data.csv',encoding='latin1',dtype=str,keep_default_na=False)
+import argparse
+import sys
+sys.path.insert(0, str(ROOT/'src'))
+from publication import current_output
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--source',type=Path,default=ROOT/'data/raw/data.csv')
+parser.add_argument('--results',type=Path,default=ROOT/'results')
+args=parser.parse_args()
+RESULTS=current_output(args.results)
+
+s=json.loads((RESULTS/'analysis.json').read_text(encoding='utf-8'))
+d=pd.read_csv(args.source,encoding='latin1',dtype=str,keep_default_na=False)
 q=pd.to_numeric(d.Quantity,errors='raise'); price=pd.to_numeric(d.UnitPrice,errors='raise')
 pd.to_datetime(d.InvoiceDate,format='%m/%d/%Y %H:%M',errors='raise')
 amount=pd.Series([int((Decimal(p)*Decimal(n)*100).quantize(Decimal(1),rounding=ROUND_HALF_UP)) for p,n in zip(d.UnitPrice,d.Quantity)])
@@ -14,7 +24,7 @@ sale=(price>0)&(q>0)&~d.InvoiceNo.str.upper().str.startswith('C')
 cancel=(price>0)&(q<0)&d.InvoiceNo.str.upper().str.startswith('C')
 eligible=sale|cancel; repeated=d.duplicated(keep='first')
 checks={
- 'source_hash':hashlib.sha256((ROOT/'data/raw/data.csv').read_bytes()).hexdigest()==s['input_sha256'],
+ 'source_hash':hashlib.sha256((args.source).read_bytes()).hexdigest()==s['input_sha256'],
  'rows':len(d)==s['metrics']['input_rows'],
  'repeats':int(repeated.sum())==s['metrics']['exact_repeat_rows'],
  'missing_customer':int((d.CustomerID=='').sum())==s['metrics']['missing_customer_rows'],
@@ -26,7 +36,7 @@ checks={
  'gross_sales_pence':int(amount[sale].sum())==s['metrics']['gross_sales_pence'],
  'unidentified_gross':int(amount[sale&(d.CustomerID=='')].sum())==s['metrics']['unidentified_gross_pence'],
 }
-with sqlite3.connect(ROOT/'results/retail.sqlite') as db:
+with sqlite3.connect(RESULTS/'retail.sqlite') as db:
     checks['sqlite_integrity']=db.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
     checks['no_orphan_lines']=db.execute('SELECT COUNT(*) FROM lines l LEFT JOIN raw_rows r USING(row_id) WHERE r.row_id IS NULL').fetchone()[0]==0
 book=ROOT/'deliverables/retail-sales-review.xlsx'

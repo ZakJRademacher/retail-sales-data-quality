@@ -34,7 +34,11 @@ python -m unittest discover -s tests -v
 - [Data dictionary](docs/DATA_DICTIONARY.md) · [Excel guide](docs/EXCEL_GUIDE.md)
 - [QA record](docs/QA_REPORT.md) · [Project walkthrough](docs/PROJECT_WALKTHROUGH.md)
 - [Source and licensing](docs/SOURCES.md)
-- [Complete portfolio bundle](retail-data-portfolio.zip)
+- [Bundle builder](tools/package_project.py): run `python tools/package_project.py` to create `retail-data-portfolio.zip`.
+
+## Current results and recovery
+
+New runs publish a complete version through `results/latest.json`. Run `python src/publication.py` to locate the current database, CSVs and analysis record. Checked-in root-level results remain historical reference files. [Versioned results and recovery](docs/RESULT_VERSIONS.md) explains failure handling and rebuilds.
 
 ## Scope
 

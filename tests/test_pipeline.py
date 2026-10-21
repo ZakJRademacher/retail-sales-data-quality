@@ -41,6 +41,9 @@ class CleaningTests(unittest.TestCase):
             with f.open('w',newline='',encoding='latin1') as stream:
                 w=csv.DictWriter(stream,p.FIELDS); w.writeheader(); w.writerows(records)
             s=p.run(f,dest/'out'); m=s['metrics']
+            self.assertNotIn('retrieved',s)
+            self.assertTrue(s['processed_at_utc'].endswith('+00:00'))
+            self.assertEqual(s['reference_snapshot_retrieved'],'2026-10-15')
             self.assertEqual(m['exact_repeat_rows'],1)
             self.assertEqual(m['net_pence'],2805)
             self.assertEqual(m['deduplicated_net_pence'],1275)

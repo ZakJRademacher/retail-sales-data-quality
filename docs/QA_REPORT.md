@@ -24,3 +24,7 @@ Executed against the downloaded Kaggle CSV on October 15, 2026.
 - Exact-repeat sensitivity net: £9,748,131.07.
 
 The controls compare integer pence, not floating-point approximations. The excluded signed value can be negative and is not an estimate of lost revenue. See `workbook-verification.json` and `independent-verification.json` for additional execution evidence. Native desktop Excel recalculation was not tested; workbook formulas were tested in the artifact-tool calculation engine and exported for Excel.
+
+## October 21 reliability update
+
+The current local suite has 22 passing tests. Regression coverage includes the affected failure paths and portable bundle verification. Native Excel and Power BI checks were not repeated for this code update. See docs/RELIABILITY_UPDATE.md for the change and validation record.

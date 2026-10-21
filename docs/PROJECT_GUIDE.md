@@ -26,7 +26,7 @@ python src/build_presentation.py
 
 Optional independent verification uses `requirements-qa.txt`: install those packages, then run `python tools/verify_outputs.py`. This independently recomputes key source metrics with pandas, checks SQLite integrity, and inspects Excel formulas, cached values and chart bindings without changing the workbook. `python tools/package_project.py` rebuilds the compact ZIP after all outputs are ready.
 
-`results/analysis.json` is the machine-readable record of metrics and reconciliation results. Six SQL files generate monthly sales, country totals, product rankings, repeat-customer groups, exclusions and overlapping quality flags. `results/retail.sqlite`, the full cleaned CSV and full raw input are generated locally; the compact portfolio ZIP omits these large files. The ZIP contains every aggregate report plus a 1,000-row cleaned example; rerunning the download and pipeline recovers the full dataset and database.
+`analysis.json` in the directory printed by `python src/publication.py` is the machine-readable record of metrics and reconciliation results. Six SQL files generate monthly sales, country totals, product rankings, repeat-customer groups, exclusions and overlapping quality flags. the current snapshot's `retail.sqlite`, the full cleaned CSV and full raw input are generated locally; the compact portfolio ZIP omits these large files. The ZIP contains every aggregate report plus a 1,000-row cleaned example; rerunning the download and pipeline recovers the full dataset and database.
 
 ## Important definitions
 
@@ -45,3 +45,7 @@ The delivered workbook opens in Excel without Python. Its formulas and chart rec
 Kaggle mirror: https://www.kaggle.com/datasets/carrie1/ecommerce-data
 
 Original: Chen, D. (2015). *Online Retail* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33. UCI lists CC BY 4.0; Kaggle's mirror currently lists the license as Unknown. Reuse of underlying data is attributed to the original UCI source, with transformations documented. Original code is MIT licensed; underlying data retains its source license. See `docs/SOURCES.md` and `LICENSE`.
+
+## Provenance timestamps
+
+New analysis records use `processed_at_utc` for the actual run time. `reference_snapshot_retrieved` identifies the original reference sample retrieval on October 15, 2026; it is not the retrieval date of a new input. Fresh source downloads record `retrieved_at_utc` in data/raw/download_manifest.json. An arbitrary supplied CSV does not inherit a claimed download timestamp.
