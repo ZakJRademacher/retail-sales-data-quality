@@ -1,5 +1,5 @@
 {
-  "engine": "Codex artifact-tool",
+  "engine": "artifact-tool",
   "netMatchesPython": true,
   "invoiceCountMatchesPython": true,
   "inputChangePropagates": true,

@@ -81,8 +81,8 @@
     },
     {
       "path": "deliverables/retail-sales-review.xlsx",
-      "bytes": 16420,
-      "sha256": "96232c98caee820a8b839eb1281a4dc80e6af47ecc9d36f4e205e37a2e2393ed"
+      "bytes": 16260,
+      "sha256": "da3fc13653732faea4efbd66d3e883a669e42fc4b5ad25cd49ed66a4f7b419b8"
     },
     {
       "path": "docs/CASE_STUDY.md",
@@ -96,8 +96,8 @@
     },
     {
       "path": "docs/EXCEL_GUIDE.md",
-      "bytes": 2384,
-      "sha256": "a38f80b09fda95b847c4d6102a6edf55ecf57a07b30ae088457d6d955937e30d"
+      "bytes": 2629,
+      "sha256": "fe2f78681102b2dfa3581fc08b850c67e104bf94ba18882147688a48e7352e0b"
     },
     {
       "path": "docs/METHOD.md",
@@ -106,8 +106,8 @@
     },
     {
       "path": "docs/PROJECT_GUIDE.md",
-      "bytes": 4130,
-      "sha256": "9591fbcdc17df46df1730e424ba2e8de077419b0215d5cb67fe24e9116bc52bf"
+      "bytes": 4140,
+      "sha256": "66a9b1a592b61b89db58f8be67c709d1abc6a43714f18af0211cc168a86f09d1"
     },
     {
       "path": "docs/PROJECT_WALKTHROUGH.md",
@@ -146,8 +146,8 @@
     },
     {
       "path": "docs/workbook-verification.json",
-      "bytes": 381,
-      "sha256": "fbcb45664aa4e8e91c9963f2c009a9c20bd0127564e4f3ddb5e9a67b1880590a"
+      "bytes": 375,
+      "sha256": "62795a5ed32f2d014ab23b248f3999f777e561957f88326ddeecae9b6e450152"
     },
     {
       "path": "release.json",
@@ -271,8 +271,13 @@
     },
     {
       "path": "tools/build_workbook.mjs",
-      "bytes": 8375,
-      "sha256": "d14c6057d25d3985e9cd47a9d4eba8b4f6e6fced7f783198ea9d9635f8ba6d42"
+      "bytes": 8570,
+      "sha256": "bfdb8429e801e3a9063866f97754db9af854cfaf7a8b47a1dca156f9aef6bee8"
+    },
+    {
+      "path": "tools/normalize_workbook.py",
+      "bytes": 1192,
+      "sha256": "5c7fe1e83d7240c32c6a0b8e55d87d96f45eef0ec70c0c1e10e1e58293bd8895"
     },
     {
       "path": "tools/package_project.py",

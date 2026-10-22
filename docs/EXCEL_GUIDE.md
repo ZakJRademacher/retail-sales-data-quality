@@ -18,7 +18,7 @@ Refresh imported Country, Gross GBP, Cancellations GBP and Sale invoices from `c
 
 The build checks headline values against Python's independent integer-pence results, tests a temporary input change and its dependent formulas, scans formula errors, renders both sheets and exports XLSX. The report states the engine used. Native desktop Excel was not available for an additional application-level recalculation test.
 
-`tools/build_workbook.mjs` uses the Codex-bundled `@oai/artifact-tool` package. In a compatible Node environment, make that dependency resolvable, then run:
+`tools/build_workbook.mjs` uses the optional `@oai/artifact-tool` spreadsheet authoring package. In a compatible Node environment, make that dependency resolvable, then run:
 
 ```sh
 node tools/build_workbook.mjs /absolute/path/to/project
@@ -29,3 +29,5 @@ The Python pipeline and all SQL reports remain independent of this optional spre
 ## Current published results
 
 Run `python src/publication.py` to locate the current snapshot before opening generated CSVs. The root-level result files are reference examples when a latest.json pointer exists. See [result versions](RESULT_VERSIONS.md).
+
+Workbook authoring also uses Python 3.10+ for display-only theme metadata normalization. Set `PYTHON` to its executable if `python` is unavailable. This helper preserves native workbook parts and does not recalculate formulas.

@@ -38,7 +38,7 @@ Optional independent verification uses `requirements-qa.txt`: install those pack
 
 ## Excel rebuild
 
-The delivered workbook opens in Excel without Python. Its formulas and chart recalculate from the monthly input table. See `docs/EXCEL_GUIDE.md` for manual refresh. `tools/build_workbook.mjs` reproduces the formatted workbook in a Codex environment with `@oai/artifact-tool`; this optional authoring dependency is separate from the portable Python analysis.
+The delivered workbook opens in Excel without Python. Its formulas and chart recalculate from the monthly input table. See `docs/EXCEL_GUIDE.md` for manual refresh. `tools/build_workbook.mjs` reproduces the formatted workbook in a compatible Node environment with `@oai/artifact-tool`; this optional authoring dependency is separate from the portable Python analysis.
 
 ## Source and rights
 

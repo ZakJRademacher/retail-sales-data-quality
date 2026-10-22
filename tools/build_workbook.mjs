@@ -1,3 +1,4 @@
+import {execFileSync} from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {createRequire} from 'node:module';
@@ -79,10 +80,11 @@ review.getRange('B22').values=[[original]];wb.recalculate();
 const observed=review.getRange('B6:B10').values.flat();
 if(Math.abs(observed[2]-baseline)>.005 || observed[3]!==input.metrics.sale_invoices)throw Error('Headline mismatch');
 const errors=await wb.inspect({kind:'match',searchTerm:'#REF!|#DIV/0!|#VALUE!|#NAME\\?|#N/A|#NUM!|#NULL!|#SPILL!|#CALC!',options:{useRegex:true,maxResults:30},summary:'Final error scan'});
-await fs.writeFile(path.join(root,'docs/workbook-verification.json'),JSON.stringify({engine:'Codex artifact-tool',netMatchesPython:true,invoiceCountMatchesPython:true,inputChangePropagates:true,restoredAfterTest:true,values:observed,errorScan:errors.ndjson,nativeExcelTested:false},null,2));
+await fs.writeFile(path.join(root,'docs/workbook-verification.json'),JSON.stringify({engine:'artifact-tool',netMatchesPython:true,invoiceCountMatchesPython:true,inputChangePropagates:true,restoredAfterTest:true,values:observed,errorScan:errors.ndjson,nativeExcelTested:false},null,2));
 for(const [s,range,name] of [[review,'A1:I40','excel-sales-preview.png'],[country,'A1:F17','excel-country-preview.png']]){
  const blob=await wb.render({sheetName:s.name,range,scale:1.5,format:'png'});
  await fs.writeFile(path.join(root,'deliverables',name),new Uint8Array(await blob.arrayBuffer()));
 }
 const output=await SpreadsheetFile.exportXlsx(wb);await output.save(path.join(root,'deliverables/retail-sales-review.xlsx'));
+execFileSync(process.env.PYTHON || 'python', [path.join(root,'tools/normalize_workbook.py'), path.join(root,'deliverables/retail-sales-review.xlsx')]);
 console.log(JSON.stringify({net:observed[2],saleInvoices:observed[3],inputChangePropagates:true,errorScan:errors.ndjson}));
