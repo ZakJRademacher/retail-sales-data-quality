@@ -1,5 +1,7 @@
 # Retail Sales & Data Quality Audit
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square) ![SQLite](https://img.shields.io/badge/SQLite-31566D?style=flat-square) ![Excel](https://img.shields.io/badge/Excel-217346?style=flat-square)
+
 **How do cleaning and duplicate-handling decisions affect reported sales?**
 
 A **Python/SQLite** audit of **541,909 historical retail transaction lines**, with an Excel review workbook, six SQL reports and source-row traceability.
