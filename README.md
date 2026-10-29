@@ -1,12 +1,14 @@
 # Retail Sales & Data Quality Audit
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square) ![SQLite](https://img.shields.io/badge/SQLite-31566D?style=flat-square) ![Excel](https://img.shields.io/badge/Excel-217346?style=flat-square)
+![Tableau](https://img.shields.io/badge/Tableau-147D80?style=flat-square) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square) ![SQLite](https://img.shields.io/badge/SQLite-31566D?style=flat-square) ![Excel](https://img.shields.io/badge/Excel-217346?style=flat-square)
 
 **How do cleaning and duplicate-handling decisions affect reported sales?**
 
-A **Python/SQLite** audit of **541,909 historical retail transaction lines**, with an Excel review workbook, six SQL reports and source-row traceability.
+A **Python/SQLite** audit of **541,909 historical retail transaction lines**, with a Tableau cleaning-policy decision brief, an Excel review workbook, six SQL reports and source-row traceability.
 
-![Retail sales and data quality overview](deliverables/portfolio-cover.png)
+**Updated Tableau decision brief:** [View the full-size preview](deliverables/tableau-retail-preview.png) · [Definitions and scope](docs/TABLEAU_REVIEW.md). The workbook remains local; it is not included in this repository.
+
+![Tableau cleaning-policy decision brief](deliverables/tableau-retail-preview.png)
 
 [Read the case study](deliverables/case-study.pdf) · [Open the Excel review](deliverables/retail-sales-review.xlsx) · [Inspect the cleaning method](docs/METHOD.md)
 
@@ -47,3 +49,4 @@ New runs publish a complete version through `results/latest.json`. Run `python s
 Independent portfolio project using Kaggle's mirror of UCI Online Retail, covering December 2010–December 9, 2011. Amounts are GBP, rounded per line to pence using decimal half-up rounding. Source/licensing details and workbook-generation dependencies are documented in the guides above.
 
 Original code: [MIT](LICENSE). Underlying data retains its source license and attribution.
+
