@@ -1,0 +1,19 @@
+﻿View,Label,Series,Value,Sort,Note
+policy,Drop unidentified valued lines,Lower reported net,-1469806.24,0,Alternative policy only; valid money can exist without customer identity.
+policy,Remove all exact repeats,Lower reported net,-21740.98,1,Sensitivity only: no unique invoice-line identifier proves these are errors.
+policy,Ignore cancellation value,Higher reported net,896812.49,2,Incorrect omission of cancellations inflates the preferred net measure.
+monthly,2010-12,Observed month,748957.02,0,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+monthly,2011-01,Observed month,560000.26,1,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+monthly,2011-02,Observed month,498062.65,2,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+monthly,2011-03,Observed month,683267.08,3,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+monthly,2011-04,Observed month,493207.12,4,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+monthly,2011-05,Observed month,723333.51,5,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+monthly,2011-06,Observed month,691123.12,6,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+monthly,2011-07,Observed month,681300.11,7,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+monthly,2011-08,Observed month,704804.63,8,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+monthly,2011-09,Observed month,1019687.62,9,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+monthly,2011-10,Observed month,1070704.67,10,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+monthly,2011-11,Observed month,1461756.25,11,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+monthly,2011-12,Partial final month,433668.01,12,December 2011 ends on day 9; do not treat its drop as a full-month decline.
+identity,Customer identified,Gross positive sales,8911407.9,0,"Identity completeness affects customer analysis, not otherwise valid sales."
+identity,Customer unidentified,Gross positive sales,1755276.64,1,"Identity completeness affects customer analysis, not otherwise valid sales."

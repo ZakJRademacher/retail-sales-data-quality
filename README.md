@@ -6,7 +6,7 @@
 
 A **Python/SQLite** audit of **541,909 historical retail transaction lines**, with a Tableau cleaning-policy decision brief, an Excel review workbook, six SQL reports and source-row traceability.
 
-**Updated Tableau decision brief:** [View the full-size preview](deliverables/tableau-retail-preview.png) · [Definitions and scope](docs/TABLEAU_REVIEW.md). The workbook remains local; it is not included in this repository.
+**Updated Tableau decision brief:** [View the full-size preview](deliverables/tableau-retail-preview.png) · [Definitions and scope](docs/TABLEAU_REVIEW.md). [Download the packaged Tableau workbook](deliverables/Retail%20Data%20Quality%20Review.twbx) · [Editable source and opening guide](tableau/README.md).
 
 ![Tableau cleaning-policy decision brief](deliverables/tableau-retail-preview.png)
 
