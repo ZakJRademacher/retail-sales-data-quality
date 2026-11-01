@@ -1,4 +1,4 @@
-# Retail Data Quality Review — Tableau guide
+# Retail Data Quality Review — local Tableau guide
 
 **Business question:** Which cleaning choices change the answer?
 

@@ -31,8 +31,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2630,
-      "sha256": "dbd6ca2198d1ef9834cedd6a038513a2c693d5f1407f166042c06f754a1fda05"
+      "bytes": 3708,
+      "sha256": "25cc417058852db661794c504a88f4bf75c189803d9f61b1e3e46c95ba8a173d"
     },
     {
       "path": "data/sample/README.md",
@@ -50,39 +50,64 @@
       "sha256": "8d3cbaa054319a27f323896f74b43ad8d2acf159dd84d64bc77a9d7afa6b27c8"
     },
     {
+      "path": "deliverables/Retail Data Quality Review.twbx",
+      "bytes": 30182,
+      "sha256": "b14e1876c709ba290ab05801f6c4c6b39de09d47d4ac71f8f3c8c2f15654a4e5"
+    },
+    {
       "path": "deliverables/case-study.pdf",
-      "bytes": 48071,
-      "sha256": "1baf78e8b86d016ddd6573118155b45bc2faf6f98ecfeb4d3320031b527155d5"
+      "bytes": 48169,
+      "sha256": "f1019cb5460a39a05780f056fd6a0f6edb3234e953f4b2b18f3a45d338421931"
     },
     {
       "path": "deliverables/excel-country-preview.png",
-      "bytes": 129583,
-      "sha256": "f41659e5fc1000a88eba9bd0747aaa87970abf791df5a1cff811c4daed6fad36"
+      "bytes": 129925,
+      "sha256": "cb38360aff5f501c5e8c8584004476fcd9914d8da1e77fe688da3c1daa508d88"
     },
     {
       "path": "deliverables/excel-sales-preview.png",
-      "bytes": 320993,
-      "sha256": "62433b0a13f0b6f9fa488399beb17e06a23840c69fb01c7b78dfdce5fda0409c"
+      "bytes": 321461,
+      "sha256": "f3d221da3d272cdc71f64e54844c32f7690e2880e88ea35e8fa3e101a5f7108a"
     },
     {
       "path": "deliverables/monthly-sales.png",
-      "bytes": 43102,
-      "sha256": "7f2313970b89fe70bc81dfa759a3c65d2977268d7c795957ce58925beb826f5b"
+      "bytes": 43368,
+      "sha256": "f6841cdac74fb9ac62764cc15b5e69a43150b9177bba68f1eff1dabc189916ae"
+    },
+    {
+      "path": "deliverables/portfolio-cover-wide.png",
+      "bytes": 305114,
+      "sha256": "ab636d09c45a4dfc48bb6822b6ceaa202219d3529c7dcd6cdacb5de1764979c5"
     },
     {
       "path": "deliverables/portfolio-cover.png",
-      "bytes": 107765,
-      "sha256": "0eb1e0882668f1c6deb38b6e8e0815b1365ad15d18e3ce40364a95e13e3286cc"
+      "bytes": 360207,
+      "sha256": "7a8c07898d1e217898150db71e73c19105bb96efd8e50dbf41e7920fc6b4ae2b"
+    },
+    {
+      "path": "deliverables/portfolio-motion.webm",
+      "bytes": 348141,
+      "sha256": "d39185a6f4d36942b5590246d18b0d9995522ee1890131f9551fc929fd8d9a08"
     },
     {
       "path": "deliverables/report.html",
-      "bytes": 62523,
-      "sha256": "1d8333202234a3b955bb6789c9702c328ad145effccb023eb8e6fd794c905018"
+      "bytes": 62875,
+      "sha256": "09b95e572f2672341e1cde3d94af06a2699a90dfe2c6146efc22225e1813c58c"
     },
     {
       "path": "deliverables/retail-sales-review.xlsx",
-      "bytes": 16260,
-      "sha256": "da3fc13653732faea4efbd66d3e883a669e42fc4b5ad25cd49ed66a4f7b419b8"
+      "bytes": 22592,
+      "sha256": "88d33ca472fc044d1b3d0b4983d848b6fdf881f20e2acc635edb6d108a006c82"
+    },
+    {
+      "path": "deliverables/tableau-retail-preview.png",
+      "bytes": 162149,
+      "sha256": "b53881007995452c2f5365e5a66b4fd7375abad424be66f75410f1916d574850"
+    },
+    {
+      "path": "design-tokens.json",
+      "bytes": 1128,
+      "sha256": "aac02766f9ce2951f459b96495630e317ed8f43bed9084186ec1bef913ad7155"
     },
     {
       "path": "docs/CASE_STUDY.md",
@@ -135,9 +160,19 @@
       "sha256": "a2c89360d3dd2558743fd29fdd66bccb2e3027fd86922982272563cae3d78cc2"
     },
     {
+      "path": "docs/TABLEAU_REVIEW.md",
+      "bytes": 1187,
+      "sha256": "a9ab222b201889a8ce71735d21039f5aeb6315ba69b4a89d879f66f3db85f17f"
+    },
+    {
       "path": "docs/UPWORK_LISTING.md",
       "bytes": 819,
       "sha256": "e594b2996dd2fd287a80cd567665730a26cd4a73825a7c0a4e28c3c0439785f7"
+    },
+    {
+      "path": "docs/VISUAL_DESIGN.md",
+      "bytes": 2346,
+      "sha256": "d1e2ae70b1ddabce602860d32c513b0cf1f959ef43dacca0e343e12a938dc0f1"
     },
     {
       "path": "docs/independent-verification.json",
@@ -148,6 +183,21 @@
       "path": "docs/workbook-verification.json",
       "bytes": 375,
       "sha256": "62795a5ed32f2d014ab23b248f3999f777e561957f88326ddeecae9b6e450152"
+    },
+    {
+      "path": "presentation/build_cover.py",
+      "bytes": 2396,
+      "sha256": "2ac60de47b08a8a60fdffd01ad5b719dc8bc8cfed2d7a33f25d307128b5f6531"
+    },
+    {
+      "path": "presentation/cover-template.html",
+      "bytes": 4116,
+      "sha256": "a86b75770d581db473cf62dff6a2a3ed75b6278872773b47ab16a085dd517b52"
+    },
+    {
+      "path": "presentation/cover.json",
+      "bytes": 587,
+      "sha256": "4b3188b849a50c7932051c592cc1d1c899856c1bed239610e40a9d8e21a848cb"
     },
     {
       "path": "release.json",
@@ -236,8 +286,8 @@
     },
     {
       "path": "src/build_presentation.py",
-      "bytes": 17599,
-      "sha256": "2dd94a61aeaa1cb2917f48e1ef817c6ab4c25e9c9f88d142ad29522c3d178192"
+      "bytes": 17751,
+      "sha256": "233a6c86593adfcd47e67434848ec42477b3c5ffa5f79ee5628a77cd281ce0b1"
     },
     {
       "path": "src/download_data.py",
@@ -255,6 +305,26 @@
       "sha256": "6124fb4c6f6b0d01c1e9790b19618a1bbd404b94950b82bba6217aa1ead4f48f"
     },
     {
+      "path": "tableau/Data/analysis.csv",
+      "bytes": 2319,
+      "sha256": "ad18f9c01bbc0ccdaba9b76cee55641a26c16ee05c064a25dfe8ee83369de558"
+    },
+    {
+      "path": "tableau/README.md",
+      "bytes": 3347,
+      "sha256": "e7f0ecc73db5e2b3ae8f0134ad4f65d041046356b8feda492125b89327bdd526"
+    },
+    {
+      "path": "tableau/Retail Data Quality Review.twb",
+      "bytes": 70207,
+      "sha256": "6fe48d5f84a656a8dc09a2264c3a24571e128c21ab5556a9b66883322c0fa658"
+    },
+    {
+      "path": "tableau/verification.json",
+      "bytes": 647,
+      "sha256": "49bb8320bac9daa76a82b2bf93e91653d91282e88137cf4f4820a2e43f9962c4"
+    },
+    {
       "path": "tests/test_packaging.py",
       "bytes": 2550,
       "sha256": "96bae297573e3c492480860343ac0b7506c53e51471d7f20aa172a53762202df"
@@ -270,9 +340,19 @@
       "sha256": "43efe293f7e978b4788ff763e0b0a8cf5b134691d91a42e5d49f075692b7cee1"
     },
     {
+      "path": "tools/apply_visual_theme.py",
+      "bytes": 5443,
+      "sha256": "cfc932c84d5ae8ea7d304c4db7c222f895539b267c58e83da98c7a4a7cf10b76"
+    },
+    {
+      "path": "tools/build_tableau.py",
+      "bytes": 14678,
+      "sha256": "384b59cb905189e2349ac8b2427dbb430adab330212bc6d696a7a41f24332476"
+    },
+    {
       "path": "tools/build_workbook.mjs",
-      "bytes": 8570,
-      "sha256": "bfdb8429e801e3a9063866f97754db9af854cfaf7a8b47a1dca156f9aef6bee8"
+      "bytes": 8660,
+      "sha256": "a0c80d2f896cabd17b62185e2732a2a8884f36f4d6493e18b701ebdc948a48b5"
     },
     {
       "path": "tools/normalize_workbook.py",
@@ -281,8 +361,13 @@
     },
     {
       "path": "tools/package_project.py",
-      "bytes": 5967,
-      "sha256": "bef7855cff5ae1246a696faee5ebe765cce073a2eb7a002107516a99330228c3"
+      "bytes": 6166,
+      "sha256": "fc17b7fb2f3f3b0bbde862ac6fabe682457a63a1e27854f83256447524bb4dc4"
+    },
+    {
+      "path": "tools/package_tableau.py",
+      "bytes": 2664,
+      "sha256": "bfaa674b2dab5a2ffe3c88343ea039a236cd5e41671ddf3ea55175b338916ac0"
     },
     {
       "path": "tools/verify_outputs.py",

@@ -121,6 +121,8 @@ def tableau(folder, filename, rows, title, subtitle, kpis, charts, takeaway, sou
         node(node(sw,'viewpoint'),'zoom',type='entire-view')
     node(book,'thumbnails')
     path=folder/(filename+'.twb');E.indent(book);E.ElementTree(book).write(path,encoding='utf-8',xml_declaration=True)
+    from apply_visual_theme import apply
+    apply(PROJECT,tableau_path=path)
     manifest={'source':source,'rows':len(rows),'csv_sha256':hashlib.sha256(data.read_bytes()).hexdigest(),'report':filename,'scope':'Historical snapshot analysis; native charts use prepared aggregate records; KPI and interpretation text are regenerated together with data.'}
     (folder/'verification.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
     return path

@@ -22,7 +22,7 @@ S=json.loads((RESULTS/'analysis.json').read_text(encoding='utf-8'))
 M=S['metrics']; R=S['reports']
 money=lambda p:f'£{p/100:,.2f}'
 pct=lambda n,d:f'{n/d:.1%}'
-navy='#18283f'; blue='#3067b0'; muted='#65758a'; amber='#b76b12'
+navy='#202346'; blue='#4A45C9'; muted='#616681'; amber='#B52F83'
 plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'axes.spines.top':False,'axes.spines.right':False,'axes.spines.left':False,'axes.edgecolor':'#cbd5e1','text.color':navy,'axes.labelcolor':muted,'xtick.color':muted,'ytick.color':muted})
 
 def monthly_chart(ax):

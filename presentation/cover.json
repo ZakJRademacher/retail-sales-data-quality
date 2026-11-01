@@ -1,0 +1,19 @@
+{
+  "title": "Retail Data Quality",
+  "eyebrow": "POLICY & RECONCILIATION",
+  "description": "See which cleaning decisions change the answer.",
+  "format": "Tableau · Excel · Python",
+  "image": "deliverables/tableau-retail-preview.png",
+  "tokens": "design-tokens.json",
+  "color_roles": {
+    "canvas": "canvas",
+    "surface": "surface",
+    "ink": "ink",
+    "muted": "muted",
+    "primary": "primary",
+    "accent": "accent"
+  },
+  "frame_label": "Retail policy review",
+  "preview_note": "UCI Online Retail · GBP",
+  "footer": "PYTHON / SQL / DATA QUALITY"
+}

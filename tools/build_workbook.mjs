@@ -14,7 +14,7 @@ try {
 } catch(error) { if(error.code!=='ENOENT') throw error; }
 const input=JSON.parse(await fs.readFile(path.join(results,'analysis.json'),'utf8'));
 const wb=Workbook.create(); const review=wb.worksheets.add('Sales review'); const country=wb.worksheets.add('Country detail');
-const blue='#3067B0',navy='#18283F',muted='#65758A',currency='"£"#,##0.00;[Red]("£"#,##0.00)';
+const blue='#4A45C9',navy='#202346',muted='#616681',currency='"£"#,##0.00;[Red]("£"#,##0.00)';
 for(const s of [review,country]){s.showGridLines=false; s.getRange('A1:L60').format.font={name:'Arial',size:10,color:navy};s.getRange('A1:L60').format.rowHeight=22;s.getRange('A1:H60').format.columnWidth=19;}
 review.tabColor=navy;
 review.getRange('A2').values=[['Retail sales & data quality audit']];review.getRange('A2').format.font={name:'Arial',size:16,bold:true,color:navy};

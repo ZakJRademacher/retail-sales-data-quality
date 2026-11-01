@@ -5,6 +5,8 @@ import argparse,copy,json,zipfile,xml.etree.ElementTree as E
 COLORS={'Current':'#147d80','Prior':'#8fa4a5','Decline':'#be5d50','Increase':'#147d80','Observed month':'#147d80','Partial final month':'#ba852d','Lower reported net':'#be5d50','Higher reported net':'#ba852d','Gross positive sales':'#147d80'}
 
 def package(project,name):
+    theme=json.loads((project/'design-tokens.json').read_text(encoding='utf-8'))['colors']
+    colors={key:('#996A13' if key in {'Partial final month','Higher reported net'} else theme['prior' if key=='Prior' else 'accent' if key in {'Decline','Lower reported net'} else 'primary']) for key in COLORS}
     source=project/'tableau'/(name+'.twb')
     tree=E.parse(source)
     for encoding in tree.findall('.//encoding'):
@@ -12,7 +14,7 @@ def package(project,name):
             for mapping in encoding.findall('map'):
                 try: member=json.loads(mapping.findtext('bucket'))
                 except (ValueError,TypeError):continue
-                if member in COLORS:mapping.set('to',COLORS[member])
+                if member in colors:mapping.set('to',colors[member])
     if name.startswith('Monthly'):
         for rule in tree.findall('.//worksheet/table/style/style-rule'):
             if rule.get('element')=='axis':
