@@ -1,13 +1,23 @@
 # Maintaining the Retail Data Quality presentation
 
-The project uses white, indigo and magenta, aligned numerical displays and generous report spacing. Segoe UI and Arial use installed system fonts; PDF presentations use Helvetica. No proprietary font files are distributed.
+Keep the report's labels, units, source attribution, and metric definitions visible when changing its appearance. Palette values live in `design-tokens.json`. Excel worksheets use a light background; the presentation builders retain their existing formula and data definitions. Segoe UI, Arial, and PDF Helvetica are system/runtime fonts rather than bundled font files.
 
-`design-tokens.json` contains the native palette. Run `python tools/apply_visual_theme.py` after rebuilding native report source. The existing report generator calls the applier where supported. Monthly Sales also retains its separate Tableau tokens and `tools/apply_visual_theme.py`. Chart roles, units, annotations and source attribution must remain visible. Excel exports stay light; their workbook builders retain the refreshed palette and formula definitions. PDF/HTML presentation builders retain the corresponding palette.
+## Update the report
 
-After editing source, open the native report in the desktop application, refresh it, inspect every page and a representative filter, restore the default selections, save and reopen it. Rebuild the existing portable package after the native save. Public previews are rendered from the working report. Tableau Public is not configured; the workbook runs locally in Tableau Desktop under the existing download arrangement.
+After rebuilding native source, run `python tools/apply_visual_theme.py` from the project root. Open the report in Tableau Desktop, inspect every page, and check the interactions described in its guide. Restore defaults, save, rebuild the portable package where applicable, and reopen the saved download. Tableau's fixed written findings must remain consistent with the stated population.
 
-Control example: **GBP 9,769,872.05 preferred net; GBP 21,740.98 repeat-row sensitivity**. Compare the relevant source totals and mapped fields as well as displayed rounded labels. Formatting must not change calculations, missing values, duplicate policies, key relationships or the population used by a measure.
+Control example: **GBP 9,769,872.05 preferred net value and GBP 21,740.98 exact-repeat sensitivity.** Check the source totals and field mappings as well as the rounded labels. Formatting must not change calculations, missing-value rules, keys, or the population behind a measure.
 
-The cover source is in `presentation/`. Capture the actual current report into the image named in `presentation/cover.json`, then run `python presentation/build_cover.py --motion --workdir <scratch folder outside the project>`. This requires the development Playwright package and Edge. It writes the two cover sizes and a short cover animation into `deliverables/`. Cover motion does not make a native report or PDF an animated application.
+## Regenerate covers
 
-Practice: change one accent in a disposable copy, rebuild and confirm the control example still reconciles. Check long labels, explicit warnings, missing/zero values, keyboard controls where available and thumbnail crops. Restore the approved palette. Keep older screenshots and verification records as dated history; record new checks separately.
+Cover source lives in `presentation/`. Capture the current report into the image named in `presentation/cover.json`, then run:
+
+```sh
+python presentation/build_cover.py --motion --workdir <scratch folder outside the project>
+```
+
+The cover builder needs the development Playwright package and Edge. It writes cover images and a short animation into `deliverables/`. That animation is separate from the report and PDF behavior.
+
+## Check a small change
+
+Try one accent change in a disposable copy, rebuild, and confirm the control example. Check long labels, explicit warnings, missing and zero values, keyboard controls where supported, and thumbnail crops. Restore the palette before portfolio use. Keep earlier screenshots and verification results as dated records; save new evidence separately.

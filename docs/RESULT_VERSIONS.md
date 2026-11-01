@@ -1,6 +1,6 @@
 # Result versions and failed refresh recovery
 
-The pipeline builds each complete result in a fresh staging directory. It closes the SQLite database and finishes CSV exports and reconciliation checks before publishing `results/latest.json` with a single file replacement. An invalid source, database failure, export failure or failed pointer replacement leaves the previous complete version current.
+Each run builds its database and exports in a separate staging folder. Only after the database is closed and the exports and reconciliations pass does `results/latest.json` switch to that result. If input, storage, export, or pointer publication fails, readers can keep using the previous complete version.
 
 ## Find the current output
 

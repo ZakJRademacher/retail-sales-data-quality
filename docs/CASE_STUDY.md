@@ -1,10 +1,10 @@
 # Case study: retail sales and data quality
 
-Personal portfolio project. Actual public Kaggle/UCI data; no private employer or client data.
+An independent analysis of public Kaggle/UCI retail data, with a Tableau policy comparison and an Excel review.
 
 ## The problem
 
-A retail export needs cleanup without losing valid sales, hiding cancellations or assuming repeated lines are errors. The project produces an auditable report and explicit decision rules.
+A retail export needs cleanup without losing valid sales, hiding cancellations or assuming repeated lines are errors. I kept those choices explicit so a reader can see how each one changes the answer.
 
 ## Findings
 
@@ -17,7 +17,7 @@ A retail export needs cleanup without losing valid sales, hiding cancellations o
 
 ## Deliverables
 
-Python ingestion and normalization; SQLite database with original-row lineage; six SQL reports; full cleaned and exception CSVs; formula-based Excel review; business report; tests; data dictionary and refresh documentation.
+The [Tableau brief](../tableau/README.md) compares cleaning policies. Python and SQLite retain source-row references, generate six SQL reports, and export the full cleaned and exception records. The Excel review, tests, field definitions, and refresh guide explain how to inspect and repeat the analysis.
 
 ## Interpretation
 

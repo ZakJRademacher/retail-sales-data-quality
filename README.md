@@ -1,35 +1,30 @@
-# Retail Sales & Data Quality Audit
+# Retail Sales and Data Quality
 
-![Current project presentation](deliverables/portfolio-cover-wide.png)
+Cleaning a retail export can change the reported sales figure. I used this project to make those choices visible: what happens when customer IDs are missing, repeated lines might be legitimate, and cancellations belong in the total?
 
-[Motion cover preview](deliverables/portfolio-motion.webm) · [Presentation maintenance guide](docs/VISUAL_DESIGN.md)
+Python and SQLite process **541,909 invoice lines**. A **Tableau brief** compares the cleaning policies, and an Excel workbook provides a closer review of the results.
 
-The October 2026 presentation refresh retains the existing calculations, source policies and report contracts. Cover animation is separate from native desktop report behavior.
+[View the Tableau report](deliverables/tableau-retail-preview.png) · [Download the workbook](deliverables/Retail%20Data%20Quality%20Review.twbx) · [Read the case study](docs/CASE_STUDY.md)
 
+![Tableau report comparing the effect of retail cleaning policies](deliverables/tableau-retail-preview.png)
 
-![Tableau](https://img.shields.io/badge/Tableau-147D80?style=flat-square) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square) ![SQLite](https://img.shields.io/badge/SQLite-31566D?style=flat-square) ![Excel](https://img.shields.io/badge/Excel-217346?style=flat-square)
+## What I found
 
-**How do cleaning and duplicate-handling decisions affect reported sales?**
+The preferred policy gives **£9,769,872.05 in net transaction value**: **£10,666,684.54** in gross positive sales less **£896,812.49** in cancellations.
 
-A **Python/SQLite** audit of **541,909 historical retail transaction lines**, with a Tableau cleaning-policy decision brief, an Excel review workbook, six SQL reports and source-row traceability.
+- Missing customer IDs don't invalidate the sales amount. Those records contribute to sales totals, while identified-customer analysis uses a narrower population.
+- Removing later exact repeats would reduce net value by **£21,740.98**. I report that as a sensitivity rather than assume every repeat is an error, because the source has no unique line ID.
+- Cancellations stay as negative amounts. Removing them would overstate net value; the source doesn't reliably link each one to a previous purchase.
 
-**Updated Tableau decision brief:** [View the full-size preview](deliverables/tableau-retail-preview.png) · [Definitions and scope](docs/TABLEAU_REVIEW.md). [Download the packaged Tableau workbook](deliverables/Retail%20Data%20Quality%20Review.twbx) · [Editable source and opening guide](tableau/README.md).
+December 2011 ends on December 9, so its lower total isn't a full-month sales decline. Net transaction value also isn't profit or collected cash. [Method and definitions](docs/METHOD.md).
 
-![Tableau cleaning-policy decision brief](deliverables/tableau-retail-preview.png)
+## Inspect the work
 
-[Read the case study](deliverables/case-study.pdf) · [Open the Excel review](deliverables/retail-sales-review.xlsx) · [Inspect the cleaning method](docs/METHOD.md)
+[Excel review](deliverables/retail-sales-review.xlsx) · [PDF briefing](deliverables/case-study.pdf) · [SQL reports](sql) · [Product ranking query](sql/products.sql) · [Results](results/analysis.json)
 
-## Analytical decisions
-
-- Retain missing customer IDs in sales totals; limit customer-repeat analysis to identified customers with purchase invoices.
-- Preserve exact repeated rows when no unique line identifier exists, and quantify a separate deduplicated sensitivity.
-- Distinguish positive sales from cancellation value and reconcile integer-pence totals across monthly, country and product reports.
-
-This project demonstrates data-quality judgment and reconciliation. December 2011 is a partial month, and net sales value is not profit, collected cash or a return cohort rate.
+The Tableau workbook includes its reporting data. Its written findings describe a fixed historical comparison; filtering an individual worksheet doesn't rewrite the text. [Tableau guide](tableau/README.md) · [Report definitions](docs/TABLEAU_REVIEW.md).
 
 ## Inspect or reproduce
-
-[Python pipeline](src/pipeline.py) · [SQL reports](sql) · [Product ranking with a window function](sql/products.sql) · [Results and reconciliations](results/analysis.json)
 
 From the repository root, with Python 3.10+:
 
@@ -39,21 +34,16 @@ python src/pipeline.py
 python -m unittest discover -s tests -v
 ```
 
-## Supporting documentation
+The pipeline retains source records and records the decisions behind the reporting population. Monthly, country, and product totals reconcile in integer pence.
 
-- [Reproduction, definitions and workbook rebuild](docs/PROJECT_GUIDE.md)
-- [Data dictionary](docs/DATA_DICTIONARY.md) · [Excel guide](docs/EXCEL_GUIDE.md)
-- [QA record](docs/QA_REPORT.md) · [Project walkthrough](docs/PROJECT_WALKTHROUGH.md)
-- [Source and licensing](docs/SOURCES.md)
-- [Bundle builder](tools/package_project.py): run `python tools/package_project.py` to create `retail-data-portfolio.zip`.
+New runs publish through `results/latest.json`. Run `python src/publication.py` to find the current database, CSVs, and analysis record. Checked-in root-level results are the historical reference. [Results and recovery](docs/RESULT_VERSIONS.md).
 
-## Current results and recovery
+## Documentation
 
-New runs publish a complete version through `results/latest.json`. Run `python src/publication.py` to locate the current database, CSVs and analysis record. Checked-in root-level results remain historical reference files. [Versioned results and recovery](docs/RESULT_VERSIONS.md) explains failure handling and rebuilds.
+- [Operating guide](docs/PROJECT_GUIDE.md) · [Data dictionary](docs/DATA_DICTIONARY.md) · [Excel guide](docs/EXCEL_GUIDE.md)
+- [Verification](docs/QA_REPORT.md) · [Walkthrough](docs/PROJECT_WALKTHROUGH.md) · [Sources](docs/SOURCES.md)
+- [Cover](deliverables/portfolio-cover-wide.png) · [Motion preview](deliverables/portfolio-motion.webm) · [Visual maintenance](docs/VISUAL_DESIGN.md)
 
-## Scope
+To build the compact project bundle, run `python tools/package_project.py`.
 
-Independent portfolio project using Kaggle's mirror of UCI Online Retail, covering December 2010–December 9, 2011. Amounts are GBP, rounded per line to pence using decimal half-up rounding. Source/licensing details and workbook-generation dependencies are documented in the guides above.
-
-Original code: [MIT](LICENSE). Underlying data retains its source license and attribution.
-
+This independent project uses Kaggle's mirror of UCI Online Retail, covering December 2010–December 9, 2011. Amounts are GBP; each line is rounded half up to pence. Original code: [MIT](LICENSE). The underlying data retains its source license and attribution.

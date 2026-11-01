@@ -1,11 +1,13 @@
-# Portfolio listing
+# Portfolio reference copy
 
-Title: Retail Data Quality Audit | Python, SQL & Excel
+This project remains public on GitHub and is not one of the six currently featured Upwork entries. The copy below is a reference for describing the work.
 
-Role: Data-quality analysis and SQL reconciliation
+Title: Retail Data Quality | Tableau, Python & SQL
 
-Description: Audit how cleaning decisions affect sales reporting across 541,909 historical retail transaction lines. Python preserves source-row traceability; SQL reports sales, cancellations, product rankings and duplicate sensitivity. Missing customer IDs remain in sales totals, while customer analysis uses identified buyers. Includes an Excel review, case study, documented rules and tests. Independent project using attributed Kaggle/UCI data.
+Role: Data-quality analysis and report design
 
-Skills: Python; SQL; Microsoft Excel; Data Cleaning; Data Analysis.
+Description: I compared how missing customer IDs, exact repeats, and cancellations affect reported sales across 541,909 historical retail lines. Python and SQLite retain source references and reconcile the totals. The Tableau brief makes the policy differences visible, while Excel provides a closer review. Includes source data instructions, definitions, and reproducible checks.
 
-Previews: Existing case-study PDF and Excel workbook screenshots. See the repository overview for cleaning definitions, source attribution and reproduction instructions.
+Skills: Tableau; Python; SQL; Microsoft Excel; Data Cleaning.
+
+Repository: https://github.com/ZakJRademacher/retail-sales-data-quality

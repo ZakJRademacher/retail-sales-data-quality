@@ -1,10 +1,10 @@
 # Project walkthrough
 
-## Explain the result to a client
+## Explain the result
 
 The problem is a transaction export with cancellations, blank identifiers and ambiguous repeats. The goal is an accurate, repeatable sales review rather than deleting every awkward row. The workflow keeps an untouched source representation, classifies every line, and reconciles every total.
 
-Review the files and run the tests before discussing the implementation in an interview. It is a personal public-data case study, not a prior paid engagement.
+Start with the Tableau policy comparison, then trace one result through the SQL and source rows.
 
 ## Python
 
@@ -15,7 +15,7 @@ Review the files and run the tests before discussing the implementation in an in
 - `monthly.sql`: conditional aggregation for gross and cancellation values, COUNT DISTINCT for invoices, and a deduplicated sensitivity.
 - `countries.sql`: geographic grouping from the same eligible view, maintaining consistent population rules.
 - `products.sql`: a CTE aggregates by stock code; DENSE_RANK ranks net value. Description is an example label and never a grouping key.
-- `customer_repeat.sql`: a CTE calculates invoice frequency per known customer, then compares single- and multi-invoice customers. Missing IDs stay out of this analysis but remain in aggregate revenue.
+- `customer_repeat.sql`: a CTE calculates invoice frequency per known customer, then compares single- and multi-invoice customers. Missing IDs stay out of this analysis but remain in aggregate transaction value.
 - `exclusion_summary.sql` and `quality_flags.sql`: distinguish mutually exclusive exclusions from overlapping quality flags.
 
 ## Spreadsheet

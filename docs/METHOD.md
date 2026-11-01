@@ -2,11 +2,11 @@
 
 ## Business question
 
-What sales trends can be reported from this export, and which data-quality decisions materially change the numbers? The intended reader is a small retail business owner or operations manager who needs a repeatable transaction-cleanup and reporting workflow.
+I looked at which sales trends the export can support and how cleaning choices change those results. The review is aimed at an owner or operations manager who needs to understand both the figure and the rules behind it.
 
 ## Source grain and provenance
 
-Each source record is an invoice **line**, not an order or a customer. Repeated invoice numbers are expected across products. Invoice/stock code is not treated as a unique line key. The untouched source CSV remains local in `data/raw/`; its SHA-256 is recorded. Every record is assigned its physical CSV record position (header is row 1) and stored as JSON in `raw_rows`. A fingerprint detects exact repeats across all eight original values.
+Each source record is an invoice **line**, not an order or a customer. Repeated invoice numbers are expected across products. Invoice/stock code is not treated as a unique line key. The untouched source CSV remains local in `data/raw/`; its SHA-256 is recorded. Every record gets its logical CSV record number (header is record 1) and is stored as JSON in `raw_rows`. A fingerprint detects exact repeats across all eight original values.
 
 ## Cleaning sequence
 

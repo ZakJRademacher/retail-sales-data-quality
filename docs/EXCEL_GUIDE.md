@@ -1,6 +1,6 @@
 # Excel guide
 
-The workbook uses two sheets: **Sales review** for monthly inputs, formulas, headline results and a chart, and **Country detail** for geographic inputs and share calculations. All monetary cells are GBP. Blue-font imported cells are SQL aggregates; dark formula cells calculate derived results.
+The Excel companion has two sheets: **Sales review** for monthly inputs, formulas, headline results and a chart, and **Country detail** for geographic inputs and share calculations. All monetary cells are GBP. Blue-font imported cells are SQL aggregates; dark formula cells calculate derived results.
 
 ## Monthly workflow
 

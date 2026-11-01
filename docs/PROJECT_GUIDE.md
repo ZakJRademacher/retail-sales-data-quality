@@ -2,7 +2,7 @@
 
 [Back to project overview](../README.md)
 
-Run commands from the repository root. Paths in command examples are relative to that root.
+Use the [Tableau brief](TABLEAU_REVIEW.md) to compare the cleaning policies, then follow this guide to reproduce the underlying analysis. Run commands from the repository root.
 
 ## Reproduce the analysis
 
@@ -26,7 +26,7 @@ python src/build_presentation.py
 
 Optional independent verification uses `requirements-qa.txt`: install those packages, then run `python tools/verify_outputs.py`. This independently recomputes key source metrics with pandas, checks SQLite integrity, and inspects Excel formulas, cached values and chart bindings without changing the workbook. `python tools/package_project.py` rebuilds the compact ZIP after all outputs are ready.
 
-`analysis.json` in the directory printed by `python src/publication.py` is the machine-readable record of metrics and reconciliation results. Six SQL files generate monthly sales, country totals, product rankings, repeat-customer groups, exclusions and overlapping quality flags. the current snapshot's `retail.sqlite`, the full cleaned CSV and full raw input are generated locally; the compact portfolio ZIP omits these large files. The ZIP contains every aggregate report plus a 1,000-row cleaned example; rerunning the download and pipeline recovers the full dataset and database.
+`analysis.json` in the directory printed by `python src/publication.py` is the machine-readable record of metrics and reconciliation results. Six SQL files generate monthly sales, country totals, product rankings, repeat-customer groups, exclusions and overlapping quality flags. The current snapshot's `retail.sqlite`, the full cleaned CSV and full raw input are generated locally; the compact portfolio ZIP omits these large files. The ZIP contains every aggregate report plus a 1,000-row cleaned example; rerunning the download and pipeline recovers the full dataset and database.
 
 ## Important definitions
 
