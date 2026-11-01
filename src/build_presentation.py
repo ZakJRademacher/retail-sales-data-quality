@@ -1,4 +1,4 @@
-"""Build portfolio visuals and documentation from executed analysis.json."""
+"""Build portfolio visuals and the HTML/PDF briefing from executed analysis.json."""
 import base64, csv, hashlib, html, json
 from pathlib import Path
 import matplotlib
@@ -64,53 +64,6 @@ findings=[
  f"Among {M['identified_sale_customers']:,} identified purchase customers, {repeat['customers']:,} ({pct(repeat['customers'],M['identified_sale_customers'])}) have multiple purchase invoices. This excludes unknown customer IDs."
 ]
 
-case='# Case study: retail sales and data quality\n\n'
-case+='Personal portfolio project. Actual public Kaggle/UCI data; no private employer or client data.\n\n## The problem\n\nA retail export needs cleanup without losing valid sales, hiding cancellations or assuming repeated lines are errors. The project produces an auditable report and explicit decision rules.\n\n## Findings\n\n'
-case+='\n'.join('- '+x for x in findings)
-case+='\n\n## Deliverables\n\nPython ingestion and normalization; SQLite database with original-row lineage; six SQL reports; full cleaned and exception CSVs; formula-based Excel review; business report; tests; data dictionary and refresh documentation.\n\n## Interpretation\n\nUse the report to prioritize clarification of repeats and unknown customer IDs, and to compare complete observed months. It does not estimate profit, business savings, inventory availability or future sales. Special charge codes remain included in transaction value. See METHOD.md for all rules.\n'
-(DOCS/'CASE_STUDY.md').write_text(case,encoding='utf-8')
-
-source=f'''# Sources and provenance
-
-## Downloaded source
-
-- Kaggle: https://www.kaggle.com/datasets/carrie1/ecommerce-data
-- Dataset: E-Commerce Data, uploader Carrie, version 1 (page inspected October 15, 2026).
-- Download: https://www.kaggle.com/api/v1/datasets/download/carrie1/ecommerce-data
-- File: `data.csv`, Latin-1 encoding, eight columns, {M['input_rows']:,} records.
-- Retrieval date: October 15, 2026.
-- SHA-256 of extracted CSV: `{S['input_sha256']}`.
-- The mirror's current license label is **Unknown**; it identifies the original UCI dataset.
-
-## Original dataset and attribution
-
-Chen, D. (2015). *Online Retail* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33.
-
-Original dataset page: https://archive.ics.uci.edu/dataset/352/online+retail
-
-UCI states Creative Commons Attribution 4.0 International (CC BY 4.0), permitting sharing and adaptation with attribution. License text: https://creativecommons.org/licenses/by/4.0/
-
-This project attributes the underlying data to UCI/Daqing Chen. It does not claim Kaggle independently supplied a permissive license. Data transformations: text normalization, explicit type/date parsing, line-level decimal rounding, eligibility classification, repeat flags, grouped SQL reports, and visual summaries. Original source data is not modified in place. Code is licensed separately under MIT.
-
-## Reproduction and scope
-
-Use the fingerprint to identify this exact input. A later Kaggle replacement may change the results; re-run tests and compare the row count and checksum. Source documentation describes the underlying retailer; all numeric findings here are computed by the included code, not copied from another analyst's notebook. Documentation discrepancies (such as UCI metadata stating no missing values) are resolved by reporting observed CSV null counts. The project does not infer identities for anonymous customer keys.
-'''
-(DOCS/'SOURCES.md').write_text(source,encoding='utf-8')
-
-qa='# Quality assurance report\n\nExecuted against the downloaded Kaggle CSV on October 15, 2026.\n\n## Automated tests\n\n13 unittest cases passed: numeric/date validation; sale/cancellation signs; missing customer retention; fractional quantities; sub-penny rounding; large orders; exact repeats; value reconciliation; repeatable rebuilding. The small test fixtures are synthetic and isolated from the real analysis.\n\n## Full-data controls\n\n'
-for k,v in S['checks'].items(): qa+=f'- {k}: {"PASS" if v else "FAIL"}\n'
-qa+=f'''\n- Input: {M['input_rows']:,} rows.
-- Sale: {M['sale']:,}; cancellation: {M['cancellation']:,}; excluded: {M['excluded']:,}.
-- Raw parseable signed value: {money(M['raw_signed_pence'])}.
-- Valued net: {money(net)}; excluded signed value: {money(M['excluded_signed_pence'])}.
-- Exact repeated source occurrences: {M['exact_repeat_rows']:,}.
-- Exact-repeat sensitivity net: {money(M['deduplicated_net_pence'])}.
-
-The controls compare integer pence, not floating-point approximations. The excluded signed value can be negative and is not an estimate of lost revenue. See `workbook-verification.json` and `independent-verification.json` for additional execution evidence. Native desktop Excel recalculation was not tested; workbook formulas were tested in the artifact-tool calculation engine and exported for Excel.
-'''
-(DOCS/'QA_REPORT.md').write_text(qa,encoding='utf-8')
-
 def table_html(rows,columns):
     return '<table><thead><tr>'+''.join('<th>'+html.escape(c)+'</th>' for c in columns)+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+html.escape(str(r[c]))+'</td>' for c in columns)+'</tr>' for r in rows)+'</tbody></table>'
 monthly=[{'Month':r['month']+(' (partial)' if r['month']=='2011-12' else ''),'Gross GBP':money(r['gross_pence']),'Cancellation GBP':money(r['cancellation_pence']),'Net GBP':money(r['net_pence'])} for r in R['monthly']]
@@ -120,7 +73,7 @@ html_doc=f'''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="vi
 <style>body{{font:16px/1.6 system-ui,sans-serif;background:#f4f6fa;color:{navy};margin:0}}main{{max-width:1050px;margin:auto;background:white;padding:48px}}h1{{font-size:34px;line-height:1.2}}h2{{margin-top:32px}}.context{{color:{muted}}}.metrics{{display:flex;gap:35px;flex-wrap:wrap;margin:28px 0}}.metric b{{display:block;font-size:27px}}img{{width:100%;height:auto}}table{{border-collapse:collapse;width:100%;font-size:14px}}td,th{{padding:10px;text-align:right;border-bottom:1px solid #dfe5ed}}td:first-child,th:first-child{{text-align:left}}th{{background:#edf1f6}}li{{margin-bottom:10px}}a{{color:{blue}}}@media(max-width:650px){{main{{padding:22px}}table{{font-size:11px}}td,th{{padding:5px}}}}@media print{{main{{padding:0}}body{{background:white}}}}</style>
 <main><p class="context">PERSONAL PORTFOLIO PROJECT · PYTHON / SQL / EXCEL</p><h1>Retail sales &amp; data quality audit</h1><p class="context">Actual Kaggle / UCI retail transactions · December 2010–December 9, 2011</p>
 <div class="metrics"><div class="metric">Source lines<b>{M['input_rows']:,}</b></div><div class="metric">Valued net transactions<b>{money(net)}</b></div><div class="metric">Unvalued rows retained for review<b>{M['excluded']:,}</b></div></div>
-<img alt="Monthly net transaction values; December 2011 is partial" src="data:image/png;base64,{image}"><h2>What the data shows</h2><ul>{body}</ul><h2>Monthly report</h2>{table_html(monthly,list(monthly[0]))}<h2>How the report was built</h2><p>Python preserves every source record, validates types and dates, and calculates signed line amounts using Decimal. SQLite queries aggregate the eligible sale and cancellation lines. All three value breakdowns reconcile exactly in pence to the headline total.</p><p>Zero/negative-price lines are excluded from valued reporting and retained in an exception file. Missing customer IDs remain in sales. Exact repeats remain in primary totals, with an alternative sensitivity. Amounts include special charge codes; net transaction value is not profit or cash collected. No business savings or causal claims are made.</p><h2>Evidence and files</h2><p>13 automated tests and seven full-data reconciliation checks passed. Read the accompanying README, METHOD, DATA_DICTIONARY, QA_REPORT and Excel guide for reproduction and limits.</p><p><a href="retail-sales-review.xlsx">Excel review workbook</a> · <a href="case-study.pdf">PDF case study</a></p><h2>Source</h2><p>Chen, D. (2015). Online Retail. UCI Machine Learning Repository. <a href="https://doi.org/10.24432/C5BW33">Dataset DOI</a> · <a href="https://www.kaggle.com/datasets/carrie1/ecommerce-data">Kaggle mirror</a>. UCI lists CC BY 4.0; the Kaggle mirror's license label is Unknown. Attribution and transformations are documented in SOURCES.md.</p></main></html>'''
+<img alt="Monthly net transaction values; December 2011 is partial" src="data:image/png;base64,{image}"><h2>What the data shows</h2><ul>{body}</ul><h2>Monthly report</h2>{table_html(monthly,list(monthly[0]))}<h2>How the report was built</h2><p>Python preserves every source record, validates types and dates, and calculates signed line amounts using Decimal. SQLite queries aggregate the eligible sale and cancellation lines. All three value breakdowns reconcile exactly in pence to the headline total.</p><p>Zero/negative-price lines are excluded from valued reporting and retained in an exception file. Missing customer IDs remain in sales. Exact repeats remain in primary totals, with an alternative sensitivity. Amounts include special charge codes; net transaction value is not profit or cash collected. No business savings or causal claims are made.</p><h2>Evidence and files</h2><p>22 automated tests and seven full-data reconciliation checks passed. Read the accompanying README, METHOD, DATA_DICTIONARY, QA_REPORT and Excel guide for reproduction and limits.</p><p><a href="retail-sales-review.xlsx">Excel review workbook</a> · <a href="case-study.pdf">PDF case study</a></p><h2>Source</h2><p>Chen, D. (2015). Online Retail. UCI Machine Learning Repository. <a href="https://doi.org/10.24432/C5BW33">Dataset DOI</a> · <a href="https://www.kaggle.com/datasets/carrie1/ecommerce-data">Kaggle mirror</a>. UCI lists CC BY 4.0; the Kaggle mirror's license label is Unknown. Attribution and transformations are documented in SOURCES.md.</p></main></html>'''
 (OUT/'report.html').write_text(html_doc,encoding='utf-8')
 
 styles=getSampleStyleSheet()
@@ -139,7 +92,7 @@ story += [P('Keep valid sales with unknown customers in aggregate reporting. Con
 for title,text in [
  ('Preserve and classify','Original rows remain in SQLite with source row numbers and exact-repeat fingerprints. Dates use month/day/year. Monetary line amounts use Decimal, rounded half up to pence. Eligible sales and C-invoice cancellations are retained; nonpositive prices and invalid records remain available for review.'),
  ('Measure the effect of cleaning',f"Gross sales are {money(gross)} and cancellation value is {money(canc)}. Excluding exact repeats changes net value from {money(net)} to {money(M['deduplicated_net_pence'])}. Missing customer IDs affect customer analysis, not the validity of otherwise eligible sales."),
- ('Verification','13 automated test cases passed, including end-to-end repeat handling and a rebuild check. Seven full-data checks reconcile row counts, signed values, gross less cancellations, and monthly/country/product totals. Independent verification and workbook calculation checks are included in the project documentation.'),
+ ('Verification','22 automated test cases passed, including end-to-end repeat handling and a rebuild check. Seven full-data checks reconcile row counts, signed values, gross less cancellations, and monthly/country/product totals. Independent verification and workbook calculation checks are included in the project documentation.'),
  ('Limits','December 2011 ends on December 9. These historical data describe one retailer. Special charge codes remain included in transaction values. Cancellation share is not a linked return rate. No cost or stock balance fields exist, so this project makes no profit, savings or inventory-availability claims.')]:
     story += [P(title,'Heading2'),P(html.escape(text))]
 story += [P('SQL example: product ranking','Heading2'),Preformatted("WITH totals AS (\n SELECT sku, SUM(amount_pence) AS net_pence\n FROM valued_lines GROUP BY sku\n)\nSELECT DENSE_RANK() OVER (ORDER BY net_pence DESC) AS rank, *\nFROM totals ORDER BY net_pence DESC, sku;",ParagraphStyle('Code',fontName='Courier',fontSize=8,leading=11)),P('Source and attribution','Heading2'),P('Chen, D. (2015). <i>Online Retail</i>. UCI Machine Learning Repository. DOI: 10.24432/C5BW33. Downloaded from Kaggle: carrie1/ecommerce-data (October 15, 2026). UCI lists CC BY 4.0; the mirror lists Unknown. Full URLs, SHA-256 and transformation details are in SOURCES.md.','Context')]
@@ -149,4 +102,4 @@ def footer(canvas,doc):
     canvas.drawRightString(564,25,f'{doc.page}')
 doc=SimpleDocTemplate(str(OUT/'case-study.pdf'),pagesize=(612,792),rightMargin=48,leftMargin=48,topMargin=42,bottomMargin=46,title='Retail Sales and Data Quality Audit',author='Zak Rademacher')
 doc.build(story,onFirstPage=footer,onLaterPages=footer)
-print('Created presentation, case study and documentation.')
+print('Created presentation, HTML report and PDF briefing. Maintained documentation was preserved.')

@@ -19,10 +19,12 @@ If Kaggle requires authentication or its public endpoint changes, download `data
 ```sh
 # Custom input/output locations, same required column schema:
 python src/pipeline.py --input data/raw/data.csv --output results
-# Rebuild the PDF, chart images, HTML and Markdown documentation:
+# Rebuild the PDF, chart images and HTML report; maintained Markdown is preserved:
 python -m pip install -r requirements-visuals.txt
 python src/build_presentation.py
 ```
+
+The presentation builder updates generated files in `deliverables/`. It leaves the maintained README and `docs/` text intact. It assumes the documented historical population; a different source needs a review of fixed titles, periods, findings and source attribution before publication.
 
 Optional independent verification uses `requirements-qa.txt`: install those packages, then run `python tools/verify_outputs.py`. This independently recomputes key source metrics with pandas, checks SQLite integrity, and inspects Excel formulas, cached values and chart bindings without changing the workbook. `python tools/package_project.py` rebuilds the compact ZIP after all outputs are ready.
 

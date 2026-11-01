@@ -2,7 +2,7 @@
 
 Executed against the downloaded Kaggle CSV on October 15, 2026.
 
-## Automated tests
+## Historical automated tests — October 15, 2026
 
 13 unittest cases passed: numeric/date validation; sale/cancellation signs; missing customer retention; fractional quantities; sub-penny rounding; large orders; exact repeats; value reconciliation; repeatable rebuilding. The small test fixtures are synthetic and isolated from the real analysis.
 
@@ -24,6 +24,10 @@ Executed against the downloaded Kaggle CSV on October 15, 2026.
 - Exact-repeat sensitivity net: £9,748,131.07.
 
 The controls compare integer pence, not floating-point approximations. The excluded signed value can be negative and is not an estimate of lost revenue. See `workbook-verification.json` and `independent-verification.json` for additional execution evidence. Native desktop Excel recalculation was not tested; workbook formulas were tested in the artifact-tool calculation engine and exported for Excel.
+
+## Current check — November 1, 2026
+
+All 22 current tests pass, and a fresh full-source run reproduces all seven reconciliations and the documented amounts. The PDF and HTML briefing now state the current 22-test count. Earlier dated counts above describe their original checks. No new native Excel or Tableau refresh was performed.
 
 ## October 21 reliability update
 
